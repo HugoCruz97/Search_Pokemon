@@ -8,26 +8,20 @@ const ENDPOINT_POKEMON = "pokemon/"
 
 function Form() {
 
-    const[infosPokemon,setInfosPokemon] = useState()
-    const[infoSearchBar,setInfoSearchBar] = useState()
-    console.log(infoSearchBar)
-
-
+    const[infosPokemon,setInfosPokemon] = useState("")
     
-    const getInfosPokemon = useCallback(async () => {
-        let response = await axios.get(ENDPOINT_BASE+ENDPOINT_POKEMON+infoSearchBar)
+    const getInfosPokemon = async (event) => {
+        let response = await axios.get(ENDPOINT_BASE+ENDPOINT_POKEMON+event)
         setInfosPokemon(response.data)
-        console.log("passou aqui")
-        console.log(infosPokemon)
-    })
+    }
 
-    useEffect(() => {
-        getInfosPokemon()
-    }, [infoSearchBar])
-        
+    useEffect(()=> {
+      console.log(infosPokemon)
+    })
+     
     return (
       <div>
-        <SearchBar onChange={debounce((event) => {setInfoSearchBar(event.target.value)}, 2000)} type="text" value={infoSearchBar} placeholder="Digite aqui o nome do Pokemon"/>
+        <SearchBar onChange={debounce((event) => {getInfosPokemon(event.target.value)}, 1000)} type="text" placeholder="Digite aqui o nome do Pokemon"/>
       </div>
     );
   }
