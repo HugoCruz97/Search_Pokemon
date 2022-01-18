@@ -6,7 +6,15 @@ const SearchBar = styled.input `
     font-size: 18px;
     margin: 0 auto;
     display: block;
-    margin-top: 42px;
+    margin-top: 22px;
 `
 
-export { SearchBar }
+const Title = styled.h1 `
+    font-size: 48px;
+    text-align:center;
+    color:white;
+    margin-top: 42px;
+    background: linear-gradient(black, white);
+`
+
+export { SearchBar, Title }

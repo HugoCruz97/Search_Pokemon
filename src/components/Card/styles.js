@@ -1,16 +1,30 @@
 import styled from "styled-components";
 
-const Title = styled.h1 `
-    text-align: center;
-    font-size: 48px;
-    color: black;
-    margin-top: 48px;
+const Wrapper = styled.div `
+    width: 300px;
+    padding: 24px 12px;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 24px;
+    background-color: #f8f8f8;
 `
+
+const Title = styled.p `
+    font-size: 20px;
+    text-align: center;
+
+`
+
+const Description = styled.p `
+    font-size: 16px;
+    text-align: center;
+    color: gray;
+`
+
 const Image = styled.img `
-    width: ${props => props.width};
-    max-width: 100%;
-    height: ${props => props.height};
+    width: 96px;
+    height: 96px;
     margin: 0 auto;
     display: block;
 `
-export { Title, Image }
+export { Wrapper, Title, Description, Image }

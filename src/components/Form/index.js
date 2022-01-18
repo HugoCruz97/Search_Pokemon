@@ -1,7 +1,8 @@
-import { SearchBar } from "./styles";
+import { SearchBar, Title } from "./styles";
 import axios from "axios";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import debounce from "lodash.debounce";
+import Card from "../Card";
 
 const ENDPOINT_BASE = "https://pokeapi.co/api/v2/"
 const ENDPOINT_POKEMON = "pokemon/"
@@ -20,9 +21,11 @@ function Form() {
     })
      
     return (
-      <div>
+      <>
+        <Title>Pesquisador Pokemon</Title>
         <SearchBar onChange={debounce((event) => {getInfosPokemon(event.target.value)}, 1000)} type="text" placeholder="Digite aqui o nome do Pokemon"/>
-      </div>
+        <Card name={infosPokemon?.name} height={infosPokemon?.height} weight={infosPokemon?.weight} image={infosPokemon?.sprites?.front_default}/>
+      </>
     );
   }
 
